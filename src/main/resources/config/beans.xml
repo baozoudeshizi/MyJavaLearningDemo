@@ -1,0 +1,10 @@
+<beans>
+    <bean id="rateLimiter" class="SimpleDI.RateLimiter">
+        <constructor-arg ref="redisCounter"/>
+    </bean>
+
+    <bean id="redisCounter" class="SimpleDI.RedisCounter" scope="singleton" lazy-init="false">
+        <constructor-arg type="String" value="127.0.0.1" />
+        <constructor-arg type="String" value="1234" />
+    </bean>
+</beans>
